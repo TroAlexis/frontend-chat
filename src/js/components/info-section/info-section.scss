@@ -1,0 +1,19 @@
+@import '~Scss/config';
+
+.info-section {
+	text-align: center;
+
+	&__title {
+		margin-bottom: rem(25px);
+
+		color: map-get($colors-text, 'heading-main');
+		font-weight: 500;
+		font-size: rem(50px);
+	}
+
+	&__paragraph {
+		color: map-get($colors-text, 'paragraph');
+		line-height: 1.75;
+	}
+}
+
