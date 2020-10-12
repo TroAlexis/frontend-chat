@@ -1,7 +1,7 @@
 {
-  "name": "Webpack-react",
+  "name": "frontend-chat",
   "version": "1.0.0",
-  "description": "Webpack react template",
+  "description": "Frontend-chat-task",
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --config ./build/webpack.dev.conf.js",
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TroAlexis/webpack-template.git"
+    "url": "git+https://github.com/TroAlexis/frontend-chat.git"
   },
   "keywords": [
     "react",
