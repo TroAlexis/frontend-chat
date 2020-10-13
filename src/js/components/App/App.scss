@@ -1,0 +1,56 @@
+@import '~Scss/config';
+
+$stripe-width: 100%;
+$stripe-height: 500px;
+$stripe-radius: 50%;
+
+
+:global .root {
+	position: relative;
+
+	padding-top: rem(100px);
+	padding-right: rem(45px);
+	padding-left: rem(45px);
+
+	overflow-x: hidden;
+
+	&::before {
+		@include pseudo();
+		@include size($stripe-width, $stripe-height);
+		top: 0;
+		left: 0;
+		z-index: -1;
+
+		background-color: #8bc6ec;
+		background-image: linear-gradient(320deg, map-get($colors, 'primary') 0%, map-get($colors, 'main') 100%);
+
+
+		border-radius: 0 0 $stripe-radius $stripe-radius;
+		transform: translateX(-50%);
+	}
+
+	&::after {
+		@include pseudo();
+		@include size($stripe-width, $stripe-height);
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+
+		background-color: map-get($colors, 'app-background');
+		border-radius: $stripe-radius $stripe-radius 0 0;
+		transform: translateX(50%);
+		opacity: 0.4;
+	}
+}
+
+.main-container {
+	//display: flex;
+	//align-items: center;
+
+	.info-section {
+	}
+
+	.chat {
+		margin-bottom: rem(100px);
+	}
+}
