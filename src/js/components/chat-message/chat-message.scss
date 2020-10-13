@@ -1,0 +1,28 @@
+@import '~Scss/config';
+
+$chat-message-br: 9px;
+
+.chat-message {
+	max-width: 70%;
+	padding: rem(10px);
+
+	color: map-get($colors-text, 'chat-left');
+
+	background-color: #ede5f2;
+	border-radius: $chat-message-br $chat-message-br $chat-message-br 5px;
+
+	&__text {
+		font-size: rem(14px);
+	}
+}
+
+.chat-message--incoming {
+	align-self: flex-end;
+
+	color: map-get($colors-text, 'chat-right');
+
+	background-color: #fff;
+
+	border-radius: $chat-message-br $chat-message-br 5px $chat-message-br;
+
+}

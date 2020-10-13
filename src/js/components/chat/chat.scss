@@ -1,0 +1,44 @@
+@import '~Scss/config';
+
+$messages-gap: rem(6px);
+
+.chat {
+	@include size(rem(380px), auto);
+	@include push--auto;
+	display: flex;
+	flex-direction: column;
+
+	padding: rem(15px);
+
+	background-color: #fff;
+
+	border-radius: 35px;
+	box-shadow: 10px 10px 50px 10px rgba(0, 0, 0, 0.25);
+
+	&__wrapper {
+		display: flex;
+		flex: 1 1 auto;
+		flex-direction: column;
+		overflow: hidden;
+
+		background-color: map-get($colors, 'app-background');
+		border-radius: 30px;
+	}
+
+	&__messages {
+		display: flex;
+		flex: 1 1 auto;
+		flex-direction: column;
+		margin: -1 * $messages-gap 0 -1 * $messages-gap 0;
+		padding: rem(15px);
+	}
+
+	&__message,
+	&__radio {
+		margin: $messages-gap 0 $messages-gap 0;
+	}
+
+	&__message--incoming + &__message:not(.chat__message--incoming) {
+		margin-top: $messages-gap * 3;
+	}
+}

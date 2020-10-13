@@ -1,0 +1,16 @@
+@import '~Scss/config';
+
+$pictureset-gap: rem(8px);
+
+.pictureset {
+	display: flex;
+	align-self: flex-end;
+	margin: rem(10px) -1 * $pictureset-gap 0 -1 * $pictureset-gap;
+
+	&__img {
+		@include size(rem(65px));
+		margin: 0 $pictureset-gap 0 $pictureset-gap;
+
+		border-radius: 10px;
+	}
+}

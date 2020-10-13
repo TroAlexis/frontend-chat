@@ -1,0 +1,155 @@
+@import '~Scss/config';
+
+$header-button-size: rem(20px);
+$header-button-width: 2px;
+
+$header-top-br: 15px;
+
+$wrapper-br: 8px;
+
+.header {
+	@extend %gradient-main;
+	position: relative;
+
+	display: flex;
+	align-items: flex-end;
+	height: rem(120px);
+
+	border-radius: 0 0 $wrapper-br $wrapper-br;
+
+	&__button {
+		@include size($header-button-width*3.5, $header-button-size);
+		position: relative;
+
+		padding: 0;
+
+		background: none;
+
+		&::after,
+		&::before {
+			@include pseudo();
+			left: 50%;
+
+			width: $header-button-width;
+			height: $header-button-size/2;
+
+			background-color: #fff;
+
+		}
+
+		&::before {
+			top: ($header-button-size - rem($header-button-width)) / 2;
+
+			transform: translateX(-50%) rotate(-30deg);
+		}
+
+		&::after {
+			bottom: ($header-button-size - rem($header-button-width))/ 2;
+
+			transform: translateX(-50%) rotate(30deg);
+		}
+	}
+
+	&::before {
+		@include pseudo();
+
+		top: 0;
+		left: 50%;
+
+		width: 55%;
+		height: rem(25px);
+
+		background-color: #fff;
+		border-radius: 0 0 $header-top-br $header-top-br;
+		transform: translateX(-50%);
+	}
+
+	&__wrapper {
+		display: flex;
+		flex: 1 1 auto;
+		align-items: center;
+		padding-bottom: rem(20px);
+		padding: {
+			right: rem(15px);
+			left: rem(15px);
+		};
+	}
+
+}
+
+
+
+.avatar {
+	@include size(rem(50px));
+	padding: 2px;
+	overflow: hidden;
+
+	background-color: #fff;
+
+	border-radius: 50%;
+
+	margin: {
+		right: rem(10px);
+		left: rem(10px);
+	};
+
+	&__img {
+		border-radius: 50%;
+	}
+}
+
+$name-group-gap: rem(4px);
+
+.name-group {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	margin: -1 * $name-group-gap 0 -1 * $name-group-gap 0;
+
+	&__name,
+	&__status {
+		margin: $name-group-gap 0 $name-group-gap 0;
+	}
+
+	&__name {
+		color: #fff;
+		font-weight: 500;
+		font-size: rem(19px);
+	}
+
+	&__status {
+		color: map-get($colors-text, 'subheading');
+		font-size: rem(15px);
+	}
+}
+
+
+$settings-size: 3px;
+$settings-gap: 2px;
+
+.settings {
+	@include size($settings-size);
+	position: relative;
+
+	justify-self: end;
+
+	background-color: #fff;
+	border-radius: 50%;
+
+	&::before,
+	&::after {
+		@include pseudo();
+		@include size($settings-size);
+		background-color: #fff;
+		border-radius: 50%;
+
+	}
+
+	&::before {
+		top: -1 * ($settings-size + $settings-gap);
+	}
+
+	&::after {
+		bottom: -1 * ($settings-size + $settings-gap);
+	}
+}
