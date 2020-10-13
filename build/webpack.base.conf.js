@@ -68,10 +68,18 @@ const CSS_LOADERS = [
         localIdentName: !isProd ? '[name]_[local]_[hash:base64:5]' : '[hash:base64:5]',
       },
       sourceMap: true,
+      importLoaders: 1,
     },
   }, {
+    loader: 'resolve-url-loader',
+  }, {
     loader: 'postcss-loader',
-    options: { sourceMap: true, config: { path: './postcss.config.js' } },
+    options: {
+      sourceMap: true,
+      postcssOptions: {
+        config: `${PATHS.src}/../postcss.config.js`,
+      },
+    },
   },
 ];
 
@@ -145,10 +153,7 @@ module.exports = {
     }, {
       test: /\.scss$/,
       use: [
-        ...CSS_LOADERS,
-        {
-          loader: 'resolve-url-loader',
-        }, {
+        ...CSS_LOADERS, {
           loader: 'sass-loader',
           options: { sourceMap: true },
         },
