@@ -13,7 +13,7 @@ import App from 'Components/App/App';
 
 // SCSS
 
-const wrapper = document.getElementById('root');
+const wrapper = document.querySelector('.root');
 ReactDOM.render(pug`App`, wrapper);
 
 if (module.hot) {
