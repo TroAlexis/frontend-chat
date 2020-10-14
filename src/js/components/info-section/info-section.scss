@@ -2,13 +2,13 @@
 
 .info-section {
 	text-align: center;
-	@include mq(875px) {
+	@include mq(813px) {
 		text-align: left;
 	}
 
 	&__title {
 
-		margin-bottom: rem(40px);
+		margin-bottom: rem(25px);
 
 		color: map-get($colors-text, 'heading-main');
 		font-weight: 500;

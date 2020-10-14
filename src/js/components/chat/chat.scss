@@ -1,19 +1,26 @@
 @import '~Scss/config';
 
-$messages-gap: rem(6px);
+$messages-gap: em(6px);
 
 .chat {
-	@include size(rem(380px), auto);
+	@include size(em(380px), auto);
 	@include push--auto;
 	display: flex;
 	flex-direction: column;
 
-	padding: rem(15px);
+	padding: em(15px);
+
+	font-size: 1rem;
 
 	background-color: #fff;
 
 	border-radius: 35px;
 	box-shadow: 10px 10px 50px 10px rgba(0, 0, 0, 0.25);
+
+
+	@include mq('tablet') {
+		font-size: rem(13px);
+	}
 
 	&__wrapper {
 		display: flex;
@@ -30,7 +37,7 @@ $messages-gap: rem(6px);
 		flex: 1 1 auto;
 		flex-direction: column;
 		margin: -1 * $messages-gap 0 -1 * $messages-gap 0;
-		padding: rem(15px) rem(15px) rem(20px) rem(15px);
+		padding: em(15px) em(15px) em(20px) em(15px);
 	}
 
 	&__message,
@@ -43,6 +50,6 @@ $messages-gap: rem(6px);
 	}
 
 	&__textarea {
-		margin-top: rem(15px);
+		margin-top: em(15px);
 	}
 }

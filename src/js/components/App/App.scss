@@ -12,6 +12,7 @@ $main-gap: rem(40px);
 
 	display: flex;
 	justify-content: center;
+	min-height: 100vh;
 
 	padding: rem(100px) rem(45px);
 
@@ -50,37 +51,33 @@ $main-gap: rem(40px);
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	@include mq(1100px) {
-		justify-content: space-between;
-	}
+	justify-content: center;
 	@include mq(740px) {
 		justify-content: space-around;
-		margin: {
-			right: -1 * $main-gap;
-			left: -1 * $main-gap;
-		};
+
 	}
+	margin: {
+		right: -1 * $main-gap;
+		left: -1 * $main-gap;
+	};
 
 	.info-section,
 	.chat {
-		@include mq(740px) {
-			margin: {
-				right: $main-gap;
-				left: $main-gap;
-			};
-		}
+		margin: {
+			right: $main-gap;
+			left: $main-gap;
+		};
 	}
 
 	.info-section {
 		flex: 0 1 rem(450px);
-		margin: 0 auto;
 		@include mq(1099px) {
 			flex: 0 1 rem(510px);
 		}
 	}
 
 	.chat {
-		@include mq(874px, max) {
+		@include mq(812px, max) {
 			margin-bottom: rem(100px);
 		}
 	}

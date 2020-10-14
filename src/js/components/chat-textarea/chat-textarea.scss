@@ -2,7 +2,7 @@
 
 .input-group {
 	display: flex;
-	padding: rem(8px) rem(8px) rem(8px) rem(25px);
+	padding: em(8px) em(8px) em(8px) em(25px);
 
 
 	background-color: #fff;
@@ -12,7 +12,7 @@
 .input {
 	flex: 1 1 auto;
 
-	font-size: rem(13px);
+	font-size: em(13px);
 
 	border: 0;
 
@@ -21,7 +21,7 @@
 	}
 }
 
-$send-button-size: rem(30px);
+$send-button-size: em(30px);
 $send-button-width: 3px;
 
 

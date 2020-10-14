@@ -1,6 +1,6 @@
 @import '~Scss/config';
 
-$header-button-size: rem(20px);
+$header-button-size: em(20px);
 $header-button-width: 2px;
 
 $header-top-br: 15px;
@@ -13,7 +13,7 @@ $wrapper-br: 8px;
 
 	display: flex;
 	align-items: flex-end;
-	height: rem(120px);
+	height: em(120px);
 
 	border-radius: 0 0 $wrapper-br $wrapper-br;
 
@@ -38,13 +38,13 @@ $wrapper-br: 8px;
 		}
 
 		&::before {
-			top: ($header-button-size - rem($header-button-width)) / 2;
+			top: ($header-button-size - em($header-button-width)) / 2;
 
 			transform: translateX(-50%) rotate(-30deg);
 		}
 
 		&::after {
-			bottom: ($header-button-size - rem($header-button-width))/ 2;
+			bottom: ($header-button-size - em($header-button-width))/ 2;
 
 			transform: translateX(-50%) rotate(30deg);
 		}
@@ -57,7 +57,7 @@ $wrapper-br: 8px;
 		left: 50%;
 
 		width: 55%;
-		height: rem(25px);
+		height: em(25px);
 
 		background-color: #fff;
 		border-radius: 0 0 $header-top-br $header-top-br;
@@ -68,10 +68,10 @@ $wrapper-br: 8px;
 		display: flex;
 		flex: 1 1 auto;
 		align-items: center;
-		padding-bottom: rem(20px);
+		padding-bottom: em(20px);
 		padding: {
-			right: rem(15px);
-			left: rem(15px);
+			right: em(15px);
+			left: em(15px);
 		};
 	}
 
@@ -80,7 +80,7 @@ $wrapper-br: 8px;
 
 
 .avatar {
-	@include size(rem(50px));
+	@include size(em(50px));
 	padding: 2px;
 	overflow: hidden;
 
@@ -89,8 +89,8 @@ $wrapper-br: 8px;
 	border-radius: 50%;
 
 	margin: {
-		right: rem(10px);
-		left: rem(10px);
+		right: em(10px);
+		left: em(10px);
 	};
 
 	&__img {
@@ -98,7 +98,7 @@ $wrapper-br: 8px;
 	}
 }
 
-$name-group-gap: rem(4px);
+$name-group-gap: em(4px);
 
 .name-group {
 	display: flex;
@@ -114,12 +114,12 @@ $name-group-gap: rem(4px);
 	&__name {
 		color: #fff;
 		font-weight: 500;
-		font-size: rem(19px);
+		font-size: em(19px);
 	}
 
 	&__status {
 		color: map-get($colors-text, 'subheading');
-		font-size: rem(15px);
+		font-size: em(15px);
 	}
 }
 
