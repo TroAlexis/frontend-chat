@@ -1,16 +1,19 @@
 @import '~Scss/config';
 
 $stripe-width: 100%;
-$stripe-height: 500px;
+$stripe-height: 560px;
 $stripe-radius: 50%;
 
+
+$main-gap: rem(40px);
 
 :global .root {
 	position: relative;
 
-	padding-top: rem(100px);
-	padding-right: rem(45px);
-	padding-left: rem(45px);
+	display: flex;
+	justify-content: center;
+
+	padding: rem(100px) rem(45px);
 
 	overflow-x: hidden;
 
@@ -44,13 +47,41 @@ $stripe-radius: 50%;
 }
 
 .main-container {
-	//display: flex;
-	//align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	@include mq(1100px) {
+		justify-content: space-between;
+	}
+	@include mq(740px) {
+		justify-content: space-around;
+		margin: {
+			right: -1 * $main-gap;
+			left: -1 * $main-gap;
+		};
+	}
+
+	.info-section,
+	.chat {
+		@include mq(740px) {
+			margin: {
+				right: $main-gap;
+				left: $main-gap;
+			};
+		}
+	}
 
 	.info-section {
+		flex: 0 1 rem(450px);
+		margin: 0 auto;
+		@include mq(1099px) {
+			flex: 0 1 rem(510px);
+		}
 	}
 
 	.chat {
-		margin-bottom: rem(100px);
+		@include mq(874px, max) {
+			margin-bottom: rem(100px);
+		}
 	}
 }

@@ -3,7 +3,7 @@
 $chat-message-br: 9px;
 
 .chat-message {
-	max-width: 70%;
+	max-width: 65%;
 	padding: rem(10px);
 
 	color: map-get($colors-text, 'chat-left');
@@ -12,7 +12,7 @@ $chat-message-br: 9px;
 	border-radius: $chat-message-br $chat-message-br $chat-message-br 5px;
 
 	&__text {
-		font-size: rem(14px);
+		font-size: rem(13.5px);
 	}
 }
 

@@ -2,18 +2,29 @@
 
 .info-section {
 	text-align: center;
+	@include mq(875px) {
+		text-align: left;
+	}
 
 	&__title {
-		margin-bottom: rem(25px);
+
+		margin-bottom: rem(40px);
 
 		color: map-get($colors-text, 'heading-main');
 		font-weight: 500;
 		font-size: rem(50px);
+		@include mq(365px, max) {
+			font-size: rem(45px);
+		}
 	}
 
 	&__paragraph {
 		color: map-get($colors-text, 'paragraph');
+		font-size: rem(18px);
 		line-height: 1.75;
+		@include mq(365px, max) {
+			font-size: 15px;
+		}
 	}
 }
 

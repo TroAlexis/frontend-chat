@@ -5,6 +5,7 @@ import ChatHeader from 'Components/chat-header/chat-header';
 import ChatMessage from 'Components/chat-message/chat-message';
 import ChatPictureSet from 'Components/chat-pictureset/chat-pictureset';
 import ChatRadio from 'Components/chat-radio/chat-radio';
+import ChatTextArea from 'Components/chat-textarea/chat-textarea';
 import './chat.scss';
 
 const Chat = ({ className }) => pug`
@@ -56,6 +57,8 @@ const Chat = ({ className }) => pug`
         ChatRadio.chat__radio(label="30 minutes walk", price="29", value="30min")
         
         ChatRadio.chat__radio(label="1 hour walk", price="49", value="1h")
+        
+        ChatTextArea(placeholder="Type a message...").chat__textarea
 `;
 
 Chat.propTypes = {

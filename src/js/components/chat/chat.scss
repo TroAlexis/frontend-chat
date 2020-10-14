@@ -30,7 +30,7 @@ $messages-gap: rem(6px);
 		flex: 1 1 auto;
 		flex-direction: column;
 		margin: -1 * $messages-gap 0 -1 * $messages-gap 0;
-		padding: rem(15px);
+		padding: rem(15px) rem(15px) rem(20px) rem(15px);
 	}
 
 	&__message,
@@ -40,5 +40,9 @@ $messages-gap: rem(6px);
 
 	&__message--incoming + &__message:not(.chat__message--incoming) {
 		margin-top: $messages-gap * 3;
+	}
+
+	&__textarea {
+		margin-top: rem(15px);
 	}
 }

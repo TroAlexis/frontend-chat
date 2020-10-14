@@ -1,0 +1,40 @@
+@import '~Scss/config';
+
+.input-group {
+	display: flex;
+	padding: rem(8px) rem(8px) rem(8px) rem(25px);
+
+
+	background-color: #fff;
+	border-radius: 15px;
+}
+
+.input {
+	flex: 1 1 auto;
+
+	font-size: rem(13px);
+
+	border: 0;
+
+	&::placeholder {
+		color: #b4b2b7;
+	}
+}
+
+$send-button-size: rem(30px);
+$send-button-width: 3px;
+
+
+.send-button {
+	@include size($send-button-size);
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 0;
+
+	background-color: map-get($colors, 'submit-background');
+	border-radius: 50%;
+}
