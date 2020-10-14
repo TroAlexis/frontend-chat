@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import './chat-radio.scss';
 
 const ChatRadio = ({
-  label, price, value, className,
+  label, price, value, className, style,
 }) => pug`
-  .radio-group(className=className)
+  .radio-group(className=className style=style)
     .radio-group__button
       input.radio-group__input(type="radio", name="walk-length", value=value, id="walk"+price)
       label.radio-group__label(for="walk"+price)=label
@@ -19,6 +19,7 @@ ChatRadio.propTypes = {
   price: PropTypes.string,
   value: PropTypes.string,
   className: PropTypes.string,
+  style: PropTypes.objectOf(PropTypes.any),
 };
 
 export default ChatRadio;

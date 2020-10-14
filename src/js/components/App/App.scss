@@ -1,8 +1,8 @@
 @import '~Scss/config';
 
-$stripe-width: 100%;
-$stripe-height: 560px;
-$stripe-radius: 50%;
+$stripe-width: 35%;
+$stripe-height: 85%;
+$stripe-radius: 45%;
 
 
 $main-gap: rem(40px);
@@ -30,7 +30,7 @@ $main-gap: rem(40px);
 
 
 		border-radius: 0 0 $stripe-radius $stripe-radius;
-		transform: translateX(-50%);
+		transform: translateX(-20%);
 	}
 
 	&::after {
@@ -42,8 +42,20 @@ $main-gap: rem(40px);
 
 		background-color: map-get($colors, 'app-background');
 		border-radius: $stripe-radius $stripe-radius 0 0;
-		transform: translateX(50%);
+		transform: translateX(20%);
 		opacity: 0.4;
+	}
+}
+
+:global {
+	.fade-appear {
+		opacity: 0;
+	}
+
+	.fade-appear.fade-appear-active {
+		opacity: 1;
+
+		transition: opacity 1s ease-in;
 	}
 }
 
