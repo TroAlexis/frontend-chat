@@ -1,17 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import MESSAGES from 'Components/chat/messages';
+
 import ChatHeader from 'Components/chat-header/chat-header';
 import ChatMessage from 'Components/chat-message/chat-message';
 import ChatPictureSet from 'Components/chat-pictureset/chat-pictureset';
 import ChatRadio from 'Components/chat-radio/chat-radio';
 import ChatTextArea from 'Components/chat-textarea/chat-textarea';
-import { CSSTransition } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './chat.scss';
 
 class Chat extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      chatItems: MESSAGES,
+    };
+  }
+
   render() {
     const { className } = this.props;
+    const { chatItems } = this.state;
 
     return pug`
       .chat(className=className)
@@ -21,62 +32,24 @@ class Chat extends React.Component {
           name: 'Samuel Green',
           status: 'Available to Walk',
         })
-          .chat__messages
-            CSSTransition(in=true, appear=true, timeout=1000 classNames="fade")
-              ChatMessage.chat__message(
-                message="That sounds great. I'd be happy to discuss more."
-                style={transitionDelay: '0.5s'}
-              )
-              
-            CSSTransition(in=true, appear=true, timeout=1000 classNames="fade")
-              ChatMessage.chat__message(
-                message="Could you send over some pictures of your dog, please?"
-                style={transitionDelay: '2.5s'}
-              )
-              
-            CSSTransition(in=true, appear=true, timeout=1000 classNames="fade")
-              ChatPictureSet(pictures=[
-                {
-                  url: 'dog-image-1',
-                  alt: 'Sparky staring at the sky',
-                },
-                {
-                  url: 'dog-image-2',
-                  alt: 'Autumn Sparky girl',
-                },
-                {
-                  url: 'dog-image-3',
-                  alt: 'Sparky fetching a stick',
-                },
-              ],
-              style={transitionDelay: '4.5s'})
-              
-            CSSTransition(in=true, appear=true, timeout=1000 classNames="fade")
-              ChatMessage.chat__message.chat__message--incoming(
-                message="Here are a few pictures. She's a happy girl!"
-                type="incoming"
-                style={transitionDelay: '5.5s'}
-              )
-            
-            CSSTransition(in=true, appear=true, timeout=1000 classNames="fade")
-              ChatMessage.chat__message.chat__message--incoming(
-                message="Can you make it?"
-                type="incoming"
-                style={transitionDelay: '7s'}
-              )
-              
-            CSSTransition(in=true, appear=true, timeout=1000 classNames="fade")
-              ChatMessage.chat__message(
-                message="She looks so happy! The time we discussed works. How long shall i take her out for?"
-                style={transitionDelay: '9s'}
-              )
-            
-            CSSTransition(in=true, appear=true, timeout=1000 classNames="fade")
-              ChatRadio.chat__radio(label="30 minutes walk", price="29", value="30min" style={transitionDelay: '12s'})
-            
-            CSSTransition(in=true, appear=true, timeout=1000 classNames="fade")
-              ChatRadio.chat__radio(label="1 hour walk", price="49", value="1h" style={transitionDelay: '12s'})
-            
+          TransitionGroup.chat__messages(appear=true)
+            each item, index in chatItems
+              - const { type, classname,...itemProps } = item;
+              CSSTransition(in=true timeout=1000 classNames="fade" key=index)
+                if type.includes('message')
+                  ChatMessage.chat__message(
+                    styleName=type.includes('incoming')? 'chat__message--incoming': ''
+                    ...itemProps
+                    type=classname
+                    style={transitionDelay: (index * 1.5).toString() + 's'}
+                  )
+                  
+                else if type === 'pictureset'
+                  ChatPictureSet(...itemProps style={transitionDelay: (index * 1.5).toString() + 's'})
+                  
+                else if type === 'radio'
+                  ChatRadio.chat__radio(...itemProps style={transitionDelay: (index * 1.5).toString() + 's'})
+                
             ChatTextArea(placeholder="Type a message...").chat__textarea
   `;
   }

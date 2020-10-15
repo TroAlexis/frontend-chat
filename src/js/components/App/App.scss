@@ -49,13 +49,13 @@ $main-gap: rem(40px);
 
 :global {
 	.fade-appear {
-		opacity: 0;
+		opacity: 0.01;
 	}
 
 	.fade-appear.fade-appear-active {
 		opacity: 1;
 
-		transition: opacity 1s ease-in;
+		transition: all 1s ease-in;
 	}
 }
 
@@ -64,33 +64,28 @@ $main-gap: rem(40px);
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
+	margin-right: -1 * $main-gap;
+	margin-left: -1 * $main-gap;
 	@include mq(740px) {
 		justify-content: space-around;
-
 	}
-	margin: {
-		right: -1 * $main-gap;
-		left: -1 * $main-gap;
-	};
 
 	.info-section,
 	.chat {
-		margin: {
-			right: $main-gap;
-			left: $main-gap;
-		};
+		margin-right: $main-gap;
+		margin-left: $main-gap;
 	}
 
 	.info-section {
 		flex: 0 1 rem(450px);
 		@include mq(1099px) {
 			flex: 0 1 rem(510px);
-		}
+		};
 	}
 
 	.chat {
 		@include mq(812px, max) {
 			margin-bottom: rem(100px);
-		}
+		};
 	}
 }

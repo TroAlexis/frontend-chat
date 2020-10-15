@@ -5,10 +5,6 @@ import InfoSection from 'Components/info-section/info-section';
 import Chat from 'Components/chat/chat';
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return pug`
       .main-container(className="u-container")

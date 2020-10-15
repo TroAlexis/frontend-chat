@@ -45,6 +45,10 @@ $messages-gap: em(6px);
 		margin: $messages-gap 0 $messages-gap 0;
 	}
 
+	&__message--incoming {
+		position: static;
+	}
+
 	&__message--incoming + &__message:not(.chat__message--incoming) {
 		margin-top: $messages-gap * 3;
 	}
