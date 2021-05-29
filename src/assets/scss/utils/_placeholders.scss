@@ -1,7 +1,7 @@
 %gradient-main {
-  	background: linear-gradient(to right, map-get($colors, 'primary') 35%, map-get($colors, 'main'));
+	background: linear-gradient(to right, map-get($colors, 'primary') 35%, map-get($colors, 'main'));
 }
 
 %gradient-main--left {
-  	background: linear-gradient(to left, map-get($colors, 'primary') 35%, map-get($colors, 'main'));
+	background: linear-gradient(to left, map-get($colors, 'primary') 35%, map-get($colors, 'main'));
 }

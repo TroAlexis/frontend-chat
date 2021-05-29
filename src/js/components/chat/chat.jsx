@@ -35,20 +35,27 @@ class Chat extends React.Component {
           TransitionGroup.chat__messages(appear=true)
             each item, index in chatItems
               - const { type, classname,...itemProps } = item;
-              CSSTransition(in=true timeout=1000 classNames="fade" key=index)
+                
+              - const delay = {transitionDelay: (index * 1.5).toString() + 's'}
+                
+              CSSTransition(in=true timeout=1000 classNames="fade" key=index addEndListener=(node) => {
+                node.addEventListener('transitionend', (e) => {
+                  e.target.style.transitionDelay = ''
+                }, false);
+              })
                 if type.includes('message')
                   ChatMessage.chat__message(
                     styleName=type.includes('incoming')? 'chat__message--incoming': ''
                     ...itemProps
                     type=classname
-                    style={transitionDelay: (index * 1.5).toString() + 's'}
+                    style=delay
                   )
                   
                 else if type === 'pictureset'
-                  ChatPictureSet(...itemProps style={transitionDelay: (index * 1.5).toString() + 's'})
+                  ChatPictureSet(...itemProps style=delay)
                   
                 else if type === 'radio'
-                  ChatRadio.chat__radio(...itemProps style={transitionDelay: (index * 1.5).toString() + 's'})
+                  ChatRadio.chat__radio(...itemProps style=delay)
                 
             ChatTextArea(placeholder="Type a message...").chat__textarea
   `;

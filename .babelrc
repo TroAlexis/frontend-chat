@@ -35,7 +35,8 @@
           "generateScopedName": "[hash:base64:5]",
           "filetypes": {
             ".scss": {
-              "syntax": "postcss-scss"
+              "syntax": "postcss-scss",
+              "plugins": ["postcss-nested"]
             }
           },
           "webpackHotModuleReloading": true

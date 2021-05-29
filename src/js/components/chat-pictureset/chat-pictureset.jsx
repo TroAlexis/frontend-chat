@@ -5,9 +5,9 @@ import './chat-pictureset.scss';
 
 const ChatPictureSet = ({ pictures, style }) => pug`
   .pictureset(style=style)
-    each picture in pictures
+    each picture, index in pictures
       - const { url, alt } = picture;
-      img.pictureset__img(src=require('Images/attachments/'+url+'.jpg'), alt=alt)
+      img.pictureset__img(src=require('Images/attachments/'+url+'.jpg'), alt=alt key=index)
 `;
 
 ChatPictureSet.propTypes = {

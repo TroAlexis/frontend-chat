@@ -177,17 +177,11 @@ module.exports = {
       filename: `${PATHS.assets}/css/[name].${isProd ? '[contenthash].' : ''}css`,
       chunkFilename: `${PATHS.assets}/css/[name].${isProd ? '[contenthash].' : ''}css`,
     }),
-    //  Copy images, fonts, static files to dist folder.
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: `${PATHS.src}/static`, to: '' },
-      ],
-    }),
     // Automatic creation of any html pages
     ...PAGES.map((page) => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}/${page}.pug`,
       filename: `./${page}.html`,
-      favicon: `${PATHS.src}/${PATHS.assets}/img/favicon.ico`,
+      favicon: `${PATHS.src}/${PATHS.assets}/img/favicon-32x32.png`,
       minify: {
         collapseWhitespace: isProd,
         removeComments: isProd,
